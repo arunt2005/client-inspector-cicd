@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Inspection Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; background-color: #f8f9fa; color: #333; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { color: #2c3e50; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+
+        /* Table Styling */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background-color: #007bff; color: white; text-transform: uppercase; font-size: 14px; }
+        tr:hover { background-color: #f1f4f9; }
+        .key-column { font-weight: 600; color: #555; width: 30%; }
+
+        /* Map Styling */
+        #map { height: 400px; width: 100%; margin-top: 30px; border-radius: 8px; border: 1px solid #ddd; }
+
+        /* Logout Button */
+        .logout-btn { float: right; padding: 8px 15px; background: #dc3545; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; }
+        .logout-btn:hover { background: #c82333; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <form th:action="@{/logout}" method="post" style="display: inline;">
+        <button type="submit" class="logout-btn">Logout</button>
+    </form>
+
+    <h2>Client Information Detail</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Detected Value</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="entry : ${clientData}">
+            <td class="key-column" th:text="${entry.key}">Attribute Name</td>
+            <td th:text="${entry.value}">Detected Value</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3 style="margin-top: 40px;">Geographic Location</h3>
+    <div id="map"></div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script th:inline="javascript">
+    /* Extract Latitude and Longitude from the Thymeleaf Model */
+    var lat = [[${clientData['Latitude']}]];
+    var lon = [[${clientData['Longitude']}]];
+
+    if (lat && lon) {
+        // Initialize map
+        var map = L.map('map').setView([lat, lon], 12);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add a marker at the client's location
+        L.marker([lat, lon]).addTo(map)
+            .bindPopup('Approximate Client Location')
+            .openPopup();
+    } else {
+        document.getElementById('map').innerHTML = "<p style='padding:20px; color:red;'>Location coordinates not available.</p>";
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+server:
+  port: 8080
+  forward-headers-strategy: native # Critical for getting real client IP behind Docker/Proxies
+
+spring:
+  application:
+    name: client-inspector
+  thymeleaf:
+    cache: false # Set to true in production for better performance
+
+  # Default Admin Credentials
+  security:
+    user:
+      name: admin
+      password: password123
+      roles: ADMIN
+
+logging:
+  # Path where the audit log will be created
+  file:
+    name: logs/access_audit.log
+
+  # Log rotation settings
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      max-history: 30
+
+  level:
+    root: INFO
+    com.apps: DEBUG # High visibility for your custom logic
+    org.springframework.security: INFO

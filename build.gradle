@@ -1,0 +1,56 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '4.0.1' // Latest stable version
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.apps'
+version = '0.0.1-SNAPSHOT'
+description = 'client inspector application'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// Web and UI
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	// Security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// Client Info Extraction
+	implementation 'nl.basjes.parse.useragent:yauaa:7.26.1' // User-Agent Parser
+	implementation 'com.maxmind.geoip2:geoip2:4.2.0'        // Geolocation
+
+	// Utilities
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// Testing
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+// Ensures the JAR is named app.jar for your Dockerfile
+bootJar {
+	archiveFileName = 'app.jar'
+}

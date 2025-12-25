@@ -1,0 +1,24 @@
+2025-12-25 07:58:36 | INFO  | Starting ClientInspectorApplicationTests using Java 21.0.2 with PID 4472 (started by ADMIN in C:\apps\client-inspector)
+2025-12-25 07:58:36 | DEBUG | Running with Spring Boot v4.0.1, Spring v7.0.2
+2025-12-25 07:58:36 | INFO  | No active profile set, falling back to 1 default profile: "default"
+2025-12-25 07:58:40 | INFO  | Started ClientInspectorApplicationTests in 5.27 seconds (process running for 7.591)
+2025-12-25 08:00:57 | INFO  | Starting ClientInspectorApplicationTests using Java 21.0.2 with PID 11764 (started by ADMIN in C:\apps\client-inspector)
+2025-12-25 08:00:57 | DEBUG | Running with Spring Boot v4.0.1, Spring v7.0.2
+2025-12-25 08:00:57 | INFO  | No active profile set, falling back to 1 default profile: "default"
+2025-12-25 08:01:02 | INFO  | Started ClientInspectorApplicationTests in 5.75 seconds (process running for 8.348)
+2025-12-25 08:01:53 | INFO  | Starting ClientInspectorApplication using Java 21.0.2 with PID 4712 (C:\apps\client-inspector\out\production\classes started by ADMIN in C:\apps\client-inspector)
+2025-12-25 08:01:53 | DEBUG | Running with Spring Boot v4.0.1, Spring v7.0.2
+2025-12-25 08:01:53 | INFO  | No active profile set, falling back to 1 default profile: "default"
+2025-12-25 08:01:59 | INFO  | Started ClientInspectorApplication in 6.808 seconds (process running for 7.831)
+2025-12-25 08:03:12 | INFO  | Access logged: IP=8.8.8.8 | OS=Windows NT | Browser=Chrome
+2025-12-25 08:04:05 | INFO  | Access logged: IP=8.8.8.8 | OS=Windows NT | Browser=Chrome
+2025-12-25 08:05:47 | INFO  | Starting ClientInspectorApplicationTests using Java 21.0.2 with PID 676 (started by ADMIN in C:\apps\client-inspector)
+2025-12-25 08:05:47 | DEBUG | Running with Spring Boot v4.0.1, Spring v7.0.2
+2025-12-25 08:05:47 | INFO  | No active profile set, falling back to 1 default profile: "default"
+2025-12-25 08:05:53 | INFO  | Started ClientInspectorApplicationTests in 6.166 seconds (process running for 8.958)
+2025-12-25 08:06:04 | INFO  | Starting ClientInspectorApplication using Java 21.0.2 with PID 3776 (C:\apps\client-inspector\out\production\classes started by ADMIN in C:\apps\client-inspector)
+2025-12-25 08:06:04 | DEBUG | Running with Spring Boot v4.0.1, Spring v7.0.2
+2025-12-25 08:06:04 | INFO  | No active profile set, falling back to 1 default profile: "default"
+2025-12-25 08:06:10 | INFO  | Started ClientInspectorApplication in 6.93 seconds (process running for 7.634)
+2025-12-25 08:06:30 | INFO  | Access logged: IP=8.8.8.8 | OS=Windows NT | Browser=Chrome
+2025-12-25 08:07:25 | INFO  | Access logged: IP=8.8.8.8 | OS=Windows NT | Browser=Chrome
